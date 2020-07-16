@@ -5,12 +5,18 @@ import subprocess
 
 INTERFACE = "wlp3s0"
 def connetWIFI(ssid, password):
+    SAVE_CONFIG = "sudo wpa_cli  -i {} save_config".format(INTERFACE)
     SET_SSID = "sudo wpa_cli  -i {}  set_network 0 ssid  '\"{}\"'".format(INTERFACE, ssid)
     os.system(SET_SSID)
+    os.system(SAVE_CONFIG)
     SET_PASS = "sudo wpa_cli  -i {}  set_network 0 psk   '\"{}\"'".format(INTERFACE, password)
     os.system(SET_PASS)
+    os.system(SAVE_CONFIG)
     RESTART =  "sudo wpa_cli  -i {} reconfigure".format(INTERFACE)
     os.system(RESTART)
+    print(SET_SSID)
+    print(SET_PASS)
+    print(RESTART)
 
 def getAllWifi():
     cell = Cell.all(INTERFACE)

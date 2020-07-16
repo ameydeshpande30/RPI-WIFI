@@ -15,7 +15,7 @@ def input(ssid):
         password = data["password"] 
         print(ssid, password)
         connetWIFI(ssid, password)
-        return render_template("connect.html", SSID=ssid)
+        return redirect("/")
     else:
         return render_template("connect.html", SSID=ssid)
 
