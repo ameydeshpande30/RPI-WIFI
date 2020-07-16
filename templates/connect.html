@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="/static/Icons.css" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="/static/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body class="register">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 col m8 push-m2  col l6 push-l3">
+           <div class="card-panel white z-depth-5">
+              <img id ="user-img" src="/static/register.png">
+              <h3>Connect To Wifi</h3>
+               <div class="row">
+               <form class="col s12" method="POST">
+                 <div class="row">
+                   <div class="input-field col s12">
+                     <input id="ssid" name="ssid" type="text" class="validate" length="10" value="{{SSID}}" readonly>
+                     <label for="ssid">SSID</label>
+                   </div>
+                   </div>
+                   <div class="row">
+                   <div class="input-field col s12">
+                     <input id="password" name="password" type="password" class="validate" length="20" required>
+                     <label for="password">Password</label>
+                   </div>
+                   </div>
+               
+                 <div class="row">
+                   <div class="col s12">
+                 <button id="submitBtn" class="btn waves-effect waves-light" type="submit" name="action">Connect
+                 </button>
+                </div>
+               </div>
+               </form>
+             </div>
+           
+           </div>
+        </div>
+     </div>
+    </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="/static/materialize.min.js"></script>
+  </body>
+</html>
