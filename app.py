@@ -21,5 +21,5 @@ def input(ssid):
     else:
         return render_template("connect.html", SSID=ssid)
 
-
+time.sleep(50)
 app.run(host="0.0.0.0", port=8888, threaded=True, debug=True)
