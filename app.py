@@ -1,5 +1,6 @@
 from flask import Flask, send_file, request, send_from_directory, render_template, redirect
 from operations import combineWifi, connetWIFI
+import time
 app = Flask(__name__)
 
 @app.route("/")
@@ -15,6 +16,7 @@ def input(ssid):
         password = data["password"] 
         print(ssid, password)
         connetWIFI(ssid, password)
+        time.sleep(5)
         return redirect("/")
     else:
         return render_template("connect.html", SSID=ssid)
