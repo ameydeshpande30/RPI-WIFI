@@ -1,6 +1,6 @@
 from flask import Flask, send_file, request, send_from_directory, render_template, redirect
 from operations import combineWifi, connetWIFI
-from db import addNetwrok, getAllNetwork, getPassword, changePassword
+from db import addNetwrok, getAllNetwork, getPassword, changePassword as cP
 import time, json
 app = Flask(__name__)
 path = "./"
@@ -42,7 +42,7 @@ def input(ssid):
         check, passs = getPassword(ssid=ssid)
         password = data["password"] 
         if check == 1 :
-            changePassword(ssid, password)
+            cP(ssid, password)
         else:
             addNetwrok(ssid, password)
         # print(ssid, password)
