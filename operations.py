@@ -1,6 +1,6 @@
 import os
 from wifi import Cell, Scheme
-import subprocess
+import subprocess, json
 
 data = open("config.json",'r').read()
 val = json.loads(data)
