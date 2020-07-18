@@ -4,19 +4,19 @@ import subprocess
 
 
 INTERFACE = "wlp3s0"
-def connetWIFI(ssid, password):
+def connetWIFI(ssid, password, id):
     SAVE_CONFIG = "sudo wpa_cli  -i {} save_config".format(INTERFACE)
-    SET_SSID = "sudo wpa_cli  -i {}  set_network 0 ssid  '\"{}\"'".format(INTERFACE, ssid)
+    SET_SSID = "sudo wpa_cli  -i {}  set_network {} ssid  '\"{}\"'".format(INTERFACE, id, ssid)
     os.system(SET_SSID)
     os.system(SAVE_CONFIG)
-    SET_PASS = "sudo wpa_cli  -i {}  set_network 0 psk   '\"{}\"'".format(INTERFACE, password)
+    SET_PASS = "sudo wpa_cli  -i {}  set_network {} psk   '\"{}\"'".format(INTERFACE, id, password)
     os.system(SET_PASS)
     os.system(SAVE_CONFIG)
     RESTART =  "sudo wpa_cli  -i {} reconfigure".format(INTERFACE)
     os.system(RESTART)
-    print(SET_SSID)
-    print(SET_PASS)
-    print(RESTART)
+    # print(SET_SSID)
+    # print(SET_PASS)
+    # print(RESTART)
 
 def getAllWifi():
     cell = Cell.all(INTERFACE)
@@ -44,9 +44,9 @@ def combineWifi():
         if i == "South-Pole":
             pass
         elif i == CUR:
-            fl.append({"code" : 1, "ssid" : i})
+            fl.append({"code" : 1, "ssid" : i, "del" : 0})
         else:
-            fl.append({"code" : 0, "ssid" : i})
+            fl.append({"code" : 0, "ssid" : i, "del" : 0})
     return fl
 
 

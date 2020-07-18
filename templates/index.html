@@ -17,14 +17,24 @@
         </h3>
         <div class="collection center">
             {% for i in data %}
-            <a href="/connect/{{i["ssid"]}}" class="collection-item">
-                {% if i["code"] == 1 %}
-                <span class="left">
-                    <i class="material-icons">wifi</i>
-                </span>
+              <div class="collection-item">
+                <a href="/connect/{{i["ssid"]}}">
+                    {% if i["code"] == 1 %}
+                    <span class="left">
+                        <i class="material-icons">wifi</i>
+                    </span>
+                    {% endif %}
+                    
+                    {{i["ssid"]}}
+                </a>
+                {% if i["del"] == 1 %}
+                  <a href="/delete/{{i["ssid"]}}">
+                    <span class="right" style="color:red">
+                      <i class="material-icons">delete</i>
+                    </span>
+                  </a>
                 {% endif %}
-                {{i["ssid"]}}
-            </a>
+                </div>
             {% endfor %}
           </div>
     </div>
