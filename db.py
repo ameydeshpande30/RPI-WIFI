@@ -1,6 +1,6 @@
 from peewee import *
-
-db = SqliteDatabase('wifiData.db')
+path = "./"
+db = SqliteDatabase(path + 'wifiData.db')
 
 class BaseModel(Model):
     class Meta:

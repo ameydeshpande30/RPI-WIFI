@@ -1,8 +1,8 @@
 import os
 from wifi import Cell, Scheme
 import subprocess, json
-
-data = open("config.json",'r').read()
+path = "./"
+data = open(path + "config.json",'r').read()
 val = json.loads(data)
 INTERFACE = val["INTERFACE"]
 def connetWIFI(ssid, password, id):
