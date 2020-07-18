@@ -2,8 +2,9 @@ import os
 from wifi import Cell, Scheme
 import subprocess
 
-
-INTERFACE = "wlp3s0"
+data = open("config.json",'r').read()
+val = json.loads(data)
+val["INTERFACE"] = "wlp3s0"
 def connetWIFI(ssid, password, id):
     SAVE_CONFIG = "sudo wpa_cli  -i {} save_config".format(INTERFACE)
     SET_SSID = "sudo wpa_cli  -i {}  set_network {} ssid  '\"{}\"'".format(INTERFACE, id, ssid)

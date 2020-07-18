@@ -1,11 +1,12 @@
 from flask import Flask, send_file, request, send_from_directory, render_template, redirect
 from operations import combineWifi, connetWIFI
 from db import addNetwrok, getAllNetwork, getPassword, changePassword
-import time
+import time, json
 app = Flask(__name__)
-
-WAKE_TIME = 0  # Time For System Network to boot up
-CONNECT_TIME = 5 # time for system to change wifi
+data = open("config.json",'r').read()
+val = json.loads(data)
+val["WAKE_TIME"] = 0  # Time For System Network to boot up
+val["CONNECT_TIME"] = 5 # time for system to change wifi
 
 @app.route("/")
 def index():
