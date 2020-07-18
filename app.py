@@ -22,7 +22,7 @@ def index():
             if val == 1:
                 newi = {}
                 newi["ssid"] = i["ssid"]
-                newi["code"] = 1
+                newi["code"] = i["code"]
                 newi["del"] = 1
                 ll.append(newi)
                 continue
