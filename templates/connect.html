@@ -18,7 +18,7 @@
               <img id ="user-img" src="/static/register.png">
               <h3>Connect To Wifi</h3>
                <div class="row">
-               <form class="col s12" method="POST">
+               <form class="col s12" action="/connect/{{SSID}}" method="POST">
                  <div class="row">
                    <div class="input-field col s12">
                      <input id="ssid" name="ssid" type="text" class="validate" length="10" value="{{SSID}}" readonly>
