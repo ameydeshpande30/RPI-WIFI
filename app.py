@@ -5,8 +5,8 @@ import time, json
 app = Flask(__name__)
 data = open("config.json",'r').read()
 val = json.loads(data)
-val["WAKE_TIME"] = 0  # Time For System Network to boot up
-val["CONNECT_TIME"] = 5 # time for system to change wifi
+WAKE_TIME = val["WAKE_TIME"]   # Time For System Network to boot up
+CONNECT_TIME = val["CONNECT_TIME"] # time for system to change wifi
 
 @app.route("/")
 def index():
