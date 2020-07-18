@@ -3,7 +3,8 @@ from operations import combineWifi, connetWIFI
 from db import addNetwrok, getAllNetwork, getPassword, changePassword
 import time, json
 app = Flask(__name__)
-data = open("config.json",'r').read()
+path = "./"
+data = open(path + "config.json",'r').read()
 val = json.loads(data)
 WAKE_TIME = val["WAKE_TIME"]   # Time For System Network to boot up
 CONNECT_TIME = val["CONNECT_TIME"] # time for system to change wifi
@@ -64,4 +65,4 @@ def startData():
         z = z + 1
 
 time.sleep(WAKE_TIME)
-app.run(host="0.0.0.0", port=8888, threaded=True, debug=True)
+app.run(host="0.0.0.0", port=8888, threaded=True, debug=False)
