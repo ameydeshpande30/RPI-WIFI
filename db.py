@@ -40,7 +40,8 @@ def changePassword(ssid, password):
     try:
         network = Networks.select().where(Networks.ssid == ssid).get()
         network.password = password
-        network.save
+        print(network.password)
+        network.save()
         db.commit()
         return 1
     except Exception as e:
